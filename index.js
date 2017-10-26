@@ -13,8 +13,8 @@ const repos = {
   front: 'BlakeGuilloud/webpack-babel-react',
 };
 
-const logError = () =>
-  log(chalk.red(`Error ${noEntry}`));
+const logError = err =>
+  log(chalk.red(`Error ${noEntry} : ${err}`));
 
 const logSuccess = dir =>
   log(chalk.green(`${beers} ${beers} Project '${dir}' has been created`));
@@ -23,7 +23,7 @@ const logProgress = () =>
   log(chalk.cyan(`${helmet} Initialized...`));
 
 const handleResponse = (err, dir) =>
-  err ? logError() : logSuccess(dir);
+  err ? logError(err) : logSuccess(dir);
 
 const create = (type, dir) =>
   download(repos[type], dir, (err) => updatePackageJson(type, dir));
