@@ -24,7 +24,7 @@ const handleResponse = (err, dir) =>
   err ? logError(err) : logSuccess(dir);
 
 const create = (type, dir) =>
-  download(repos[type], dir, handleResponse);
+  download(repos[type], dir, (err) => handleResponse(err, dir));
 
 module.exports = {
   create,
