@@ -1,0 +1,29 @@
+{
+  "parser": "babel-eslint",
+  "extends": "eslint:recommended",
+  "parserOptions": {
+    "ecmaVersion": 6
+  },
+  "env": {
+    "browser": true,
+    "es6": true,
+    "jest": true,
+    "node": true
+  },
+  "rules": {
+    "camelcase": ["error", { "properties": "always" }],
+    "no-unused-vars": 0,
+    "func-call-spacing": ["error", "never"],
+    "indent": ["error", 2],
+    "no-console": "off",
+    "no-debugger": "error",
+    "no-multi-spaces": "error",
+    "no-trailing-spaces": "error",
+    "no-undef": "error",
+    "no-whitespace-before-property": "error",
+    "quotes": ["error", "single"],
+    "semi": ["error", "always"],
+    "space-infix-ops": ["error", {"int32Hint": false}],
+    "no-dupe-keys": "error"
+  }
+}
