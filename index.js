@@ -1,3 +1,5 @@
+const fs = require('fs');
+
 const chalk = require('chalk');
 const emoji = require('node-emoji');
 const download = require('download-git-repo');
@@ -15,7 +17,7 @@ const logError = () =>
   log(chalk.red(`Error ${noEntry}`));
 
 const logSuccess = dir =>
-  log(chalk.green(`${beers} ${beers} Repo '${dir}' has been created`));
+  log(chalk.green(`${beers} ${beers} Project '${dir}' has been created`));
 
 const logProgress = () =>
   log(chalk.cyan(`${helmet} Initialized...`));
@@ -24,11 +26,22 @@ const handleResponse = (err, dir) =>
   err ? logError() : logSuccess(dir);
 
 const create = (type, dir) =>
-  download(repos[type], dir, (err) => handleResponse(err, dir));
+  download(repos[type], dir, (err) => updatePackageJson(type, dir));
+
+const updatePackageJson = (type, dir) => {
+  const fileName = `./${dir}/package.json`;
+  const file = require(fileName);
+  file.name = dir;
+
+  fs.writeFileSync(fileName, JSON.stringify(file, null, 2));
+
+  logSuccess(dir);
+};
 
 module.exports = {
   create,
   logProgress,
+  updatePackageJson,
 };
 
 
