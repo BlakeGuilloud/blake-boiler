@@ -1,5 +1,3 @@
-const fs = require('fs');
-
 const chalk = require('chalk');
 const emoji = require('node-emoji');
 const download = require('download-git-repo');
@@ -28,23 +26,9 @@ const handleResponse = (err, dir) =>
 const create = (type, dir, callback) =>
   download(repos[type], dir, () => callback(type, dir));
 
-const updatePackageJson = (type, dir) => {
-  logProgress('Personalizing..');
-  setTimeout(() => {
-    const fileName = `./${dir}/package.json`;
-    const file = require(fileName);
-    file.name = dir;
-
-    fs.writeFileSync(fileName, JSON.stringify(file, null, 2));
-
-    logSuccess(dir);
-  }, .5);
-};
-
 module.exports = {
   create,
   logProgress,
-  updatePackageJson,
 };
 
 
