@@ -23,8 +23,8 @@ const logProgress = message =>
 const handleResponse = (err, dir) =>
   err ? logError(err) : logSuccess(dir);
 
-const create = (type, dir, callback) =>
-  download(repos[type], dir, () => callback(type, dir));
+const create = (type, dir) =>
+  download(repos[type], dir, handleResponse);
 
 module.exports = {
   create,
