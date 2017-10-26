@@ -19,8 +19,8 @@ const logError = err =>
 const logSuccess = dir =>
   log(chalk.green(`${beers} ${beers} Project '${dir}' has been created`));
 
-const logProgress = () =>
-  log(chalk.cyan(`${helmet} Initialized...`));
+const logProgress = message =>
+  log(chalk.cyan(`${helmet} ${message || 'Initialized...'}`));
 
 const handleResponse = (err, dir) =>
   err ? logError(err) : logSuccess(dir);
@@ -29,13 +29,16 @@ const create = (type, dir) =>
   download(repos[type], dir, (err) => updatePackageJson(type, dir));
 
 const updatePackageJson = (type, dir) => {
-  const fileName = `./${dir}/package.json`;
-  const file = require(fileName);
-  file.name = dir;
+  logProgress('Personalizing..');
+  setTimeout(() => {
+    const fileName = `./${dir}/package.json`;
+    const file = require(fileName);
+    file.name = dir;
 
-  fs.writeFileSync(fileName, JSON.stringify(file, null, 2));
+    fs.writeFileSync(fileName, JSON.stringify(file, null, 2));
 
-  logSuccess(dir);
+    logSuccess(dir);
+  }, .5);
 };
 
 module.exports = {
