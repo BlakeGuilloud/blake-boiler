@@ -5,14 +5,11 @@
     "ecmaVersion": 6
   },
   "env": {
-    "browser": true,
     "es6": true,
-    "jest": true,
     "node": true
   },
   "rules": {
     "camelcase": ["error", { "properties": "always" }],
-    "no-unused-vars": 0,
     "func-call-spacing": ["error", "never"],
     "indent": ["error", 2],
     "no-console": "off",
