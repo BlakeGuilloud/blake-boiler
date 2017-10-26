@@ -7,6 +7,8 @@ program
   .version('0.1.0')
   .command('create <type> <dir>')
   .action(logProgress)
-  .action(create);
+  .action((type, dir) => {
+    create(type, dir, updatePackageJson);
+  });
 
 program.parse(process.argv);
