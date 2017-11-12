@@ -3,6 +3,7 @@
   "version": "1.0.8",
   "main": "index.js",
   "author": "Blake Guilloud <blake.guilloud@gmail.com>",
+  "description": "Boilerplate CLI for my personal projects",
   "license": "MIT",
   "dependencies": {
     "chalk": "^2.3.0",
