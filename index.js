@@ -10,6 +10,7 @@ const helmet = emoji.get('helmet_with_white_cross');
 const repos = {
   react: 'BlakeGuilloud/webpack-babel-react',
   front: 'BlakeGuilloud/webpack-babel-front',
+  package: 'BlakeGuilloud/npm-pkg',
 };
 
 const logError = err =>
