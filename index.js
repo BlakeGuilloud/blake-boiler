@@ -11,6 +11,7 @@ const repos = {
   react: 'BlakeGuilloud/webpack-babel-react',
   front: 'BlakeGuilloud/webpack-babel-front',
   package: 'BlakeGuilloud/npm-pkg',
+  sls: 'BlakeGuilloud/sls-boilerplate',
 };
 
 const logError = err =>
