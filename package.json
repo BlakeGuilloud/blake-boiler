@@ -1,6 +1,6 @@
 {
   "name": "blake-boiler",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "main": "index.js",
   "author": "Blake Guilloud <blake.guilloud@gmail.com>",
   "description": "Boilerplate CLI for my personal projects",
